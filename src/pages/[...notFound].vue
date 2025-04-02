@@ -1,24 +1,31 @@
 <script setup lang="ts">
-const typedRef = useTyped([' is not found!'])
+import { getRandomInt } from '~/utils/number'
+const randomNumber = getRandomInt(1, 33)
+const { t } = useI18n()
+const route = useRoute()
+const current = route.path
+const typedRef = useTyped([t("isNotFound")])
 </script>
 
 <template>
 	<div class="h-screen flex flex-wrap items-center justify-around text-center">
 		<div class="desc font-blod">
 			<div class="code text-7xl">404</div>
-			<div ref="typedRef" class="content mb-5 text-3xl">The Page</div>
+			<div ref="typedRef" class="content mb-5 text-3xl">
+				{{ $t("thePage") }} "{{ current }}"
+			</div>
 			<RouterLink :to="safeResolve('/')">
 				<button
 					class="rounded bg-light-800 px-5 py-2 text-lg transition"
 					hover="shadow-md"
 					dark="text-black"
 				>
-					Go Home
+					{{ $t("goHome") }}
 				</button>
 			</RouterLink>
 		</div>
 		<img
-			:src="safeResolve('/notFound/32.svg')"
+			:src="safeResolve(`/notFound/${randomNumber}.svg`)"
 			class="cover"
 			alt="page not found"
 		/>

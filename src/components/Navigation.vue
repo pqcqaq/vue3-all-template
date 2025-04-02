@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getRoutes } from '@/plugins/router'
-import { SwitchIcon } from 'vue-dark-switch'
+import { SwitchIcon, isDark } from 'vue-dark-switch'
 
 const { te, t } = useI18n()
 
@@ -27,31 +27,9 @@ const $route = useRoute()
 		aria-label="Site Nav"
 		class="mx-auto h-80px max-w-3xl flex items-center justify-between p-4"
 	>
-		<div class="flex items-center justify-center space-x-5">
+		<div class="flex items-center justify-center space-x-5 gap-2">
 			<SwitchIcon unmount-persets />
-			<a href="https://pc.dishait.cn/" target="_blank">
-				<span
-					style="
-						color: white;
-						font-size: 14px;
-						border-radius: 3px 0 0 3px;
-						padding: 4px 4px 4px 4px;
-						background: #00b894;
-					"
-					>帝莎编程</span
-				>
-				<span
-					style="
-						border-radius: 0 3px 3px 0;
-						padding: 5px 10px 5px 2px;
-						background: #00dc8220;
-						font-size: 13px;
-						color: rgba(37, 99, 235);
-					"
-				>
-					https://pc.dishait.cn/
-				</span>
-			</a>
+			{{ isDark ? $t("darkMode") : $t("lightMode") }}
 		</div>
 
 		<ul class="flex items-center gap-2 text-sm font-medium">
@@ -68,7 +46,7 @@ const $route = useRoute()
 			<li>
 				<a
 					class="inline-flex items-center gap-2 rounded-lg px-3 py-2"
-					href="https://github.com/dishait/tov-template"
+					href="https://github.com/pqcqaq/vue3-all-template"
 					target="_blank"
 				>
 					<svg

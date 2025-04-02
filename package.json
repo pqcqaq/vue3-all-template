@@ -3,10 +3,10 @@
   "version": "1.19.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
     "test": "vitest",
     "build": "vite build",
-    "prepare": "husky install",
+    "prepare": "husky",
     "dev:host": "vite --host",
     "dev:open": "vite --open",
     "preview": "vite preview",
@@ -117,7 +117,7 @@
     "vue-demi": "npm:vue-demi@latest"
   },
   "repository": {
-    "url": "https://github.com/dishait/tov-template"
+    "url": "https://github.com/pqcqaq/vue3-all-template"
   },
   "browserslist": [
     ">= 0.25%",

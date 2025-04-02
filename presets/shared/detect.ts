@@ -4,9 +4,7 @@
  */
 
 import { r } from './path'
-import { loadEnv } from 'vite'
 import browserslist from 'browserslist'
-import { detectMode } from 'vite-layers'
 import { isPackageExists } from 'local-pkg'
 import type { ComponentResolver } from 'unplugin-vue-components'
 
@@ -46,31 +44,4 @@ export function detectResolvers(options: Options = {}) {
 	existedResolvers.push(...include)
 
 	return existedResolvers
-}
-
-// 获取环境变量
-export function useEnv() {
-	function stringToBoolean(v: string) {
-		return Boolean(v === 'true' || false)
-	}
-
-	const {
-		VITE_APP_TITLE,
-		VITE_APP_DEV_TOOLS,
-		VITE_APP_MARKDOWN,
-		VITE_APP_API_AUTO_IMPORT,
-		VITE_APP_MOCK_IN_PRODUCTION,
-		VITE_APP_DIR_API_AUTO_IMPORT,
-		VITE_APP_COMPRESSINON_ALGORITHM,
-	} = loadEnv(detectMode(), '.')
-
-	return {
-		VITE_APP_TITLE,
-		VITE_APP_COMPRESSINON_ALGORITHM,
-		VITE_APP_DEV_TOOLS: stringToBoolean(VITE_APP_DEV_TOOLS),
-		VITE_APP_MARKDOWN: stringToBoolean(VITE_APP_MARKDOWN),
-		VITE_APP_API_AUTO_IMPORT: stringToBoolean(VITE_APP_API_AUTO_IMPORT),
-		VITE_APP_MOCK_IN_PRODUCTION: stringToBoolean(VITE_APP_MOCK_IN_PRODUCTION),
-		VITE_APP_DIR_API_AUTO_IMPORT: stringToBoolean(VITE_APP_DIR_API_AUTO_IMPORT),
-	}
 }

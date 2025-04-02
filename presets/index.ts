@@ -48,12 +48,11 @@ import {
 	Layers,
 	Optimize,
 } from './plugins'
-import { defaultBuildTargets, detectResolvers, useEnv } from './shared/detect'
+import { defaultBuildTargets, detectResolvers } from './shared/detect'
 import { r } from './shared/path'
 import type { PluginOption } from 'vite'
 
-export default function () {
-	const env = useEnv()
+export default function (env: ImportMetaEnv) {
 	const safelist =
 		'prose px-2 sm:px-0 md:prose-lg lg:prose-lg dark:prose-invert text-left w-screen prose-slate prose-img:rounded-xl prose-headings:underline prose-a:text-blue-600'
 
@@ -126,7 +125,7 @@ export default function () {
 		 * https://github.com/vbenjs/vite-plugin-mock
 		 */
 		Mock({
-			prodEnabled: env.VITE_APP_MOCK_IN_PRODUCTION,
+			prodEnabled: !!env.VITE_APP_MOCK_IN_PRODUCTION,
 		}),
 		/**
 		 * 组件自动按需引入

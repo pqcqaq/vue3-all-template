@@ -19,12 +19,6 @@ const { t } = useI18n()
 		<p>
 			{{ t('test.module') }}
 		</p>
-		<p>
-			{{ t('check out') }}
-			<a href="https://github.com/dishait/tov-template" target="_blank">
-				tov-template </a
-			>, {{ t('the official Tov + Vue + Vite template') }}
-		</p>
 		<p class="read-the-docs">
 			{{ t('The total number of views is') }}
 			<span class="text-gray-800" dark="text-gray-300">{{ visits ?? 0 }}</span>

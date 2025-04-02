@@ -11,8 +11,9 @@ export function useVisits() {
 	}
 
 	const { data: visits } = useRequest(async function () {
+		// 请求API得到访问数
 		try {
-			const n = await http.get('https://visits-kv.deno.dev/tov-template', {
+			const n = await http.get('https://github.com/dishait/tov-template', {
 				baseURL: '',
 			})
 			return Number(n) ?? 0

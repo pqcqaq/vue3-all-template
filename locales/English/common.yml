@@ -7,4 +7,8 @@ edit: Edit
 to test HMR: to test HMR
 check out: Check out
 The total number of views is: The total number of views is
-the official Tov + Vue + Vite template: the official Tov + Vue + Vite template
+isNotFound: is not found
+thePage: The page
+goHome: Go Home
+darkMode: Dark Mode
+lightMode: Light Mode
