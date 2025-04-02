@@ -20,5 +20,14 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 				},
 			},
 		},
+		build: {
+			rollupOptions: {
+				output: {
+					entryFileNames: 'assets/js/[name]-[hash].js', //入口文件
+					chunkFileNames: 'assets/js/chunk/[name]-[hash].js', //分包引入文件
+					assetFileNames: 'assets/[ext]/[name]-[hash].[ext]', //静态文件
+				},
+			},
+		},
 	}
 })
